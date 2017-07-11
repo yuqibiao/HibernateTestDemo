@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <!--===================必选属性配置（5个）===================-->
+    <!--数据库驱动-->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <!--数据库url-->
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/yu</property>
+    <!--数据库用户名-->
+    <property name="hibernate.connection.username">root</property>
+    <!--数据库密码-->
+    <property name="hibernate.connection.password">52013141992</property>
+    <!--指定数据库方言（不同的数据库sql会有些许语法区别）-->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <!--==================可选属性配置（3个）=====================-->
+    <!--打印sql-->
+    <property name="hibernate.show_sql">true</property>
+    <!--打印sql的时候格式化-->
+    <property name="hibernate.format_sql">true</property>
+    <!--
+    自动生成表结构
+    create：           自动建表，每次框架运行都会创建新的表，原来的表会被覆盖，数据丢失（测试时使用）。
+    create-drop：自动建表，每次框架运行都会创建新的表，原来的表被删除，数据丢失（测试时使用）。
+    validate：        不自动建表，每次框架运行都会检验数据库中表是否正确。
+    update：         自动建表，如果表不存在就删除，如果存在就更新，数据不会丢失（推荐使用）。
+    -->
+    <property name="hbm2ddl.auto">update</property>
+
+  </session-factory>
+</hibernate-configuration>
