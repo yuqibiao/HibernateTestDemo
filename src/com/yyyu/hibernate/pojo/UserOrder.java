@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class UserOrder {
 
-    private int id;
+    private int o_id;
     private User user;
     private Date createTime;
     private String tip;
@@ -18,12 +18,12 @@ public class UserOrder {
     public UserOrder() {
     }
 
-    public int getId() {
-        return id;
+    public int getO_id() {
+        return o_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setO_id(int o_id) {
+        this.o_id = o_id;
     }
 
     public User getUser() {

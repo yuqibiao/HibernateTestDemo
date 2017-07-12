@@ -4,15 +4,26 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.yyyu.hibernate.pojo.User" table="user">
-        <id name="id" column="id">
+    <!--column、table名和属性名、类名一致时可以缺省-->
+    <class name="com.yyyu.hibernate.pojo.User" table="t_user">
+        <id name="u_id" >
             <generator class="native"/>
         </id>
-        <!--column名和属性名一致时可以缺省-->
-        <property name="username"/>
-        <property name="sex"/>
+        <property name="username" />
+        <property name="sex" />
         <property name="birthday"/>
         <property name="address"/>
+
+        <!--
+        name：集合属性名
+        column：外键列名（从表中）
+        class：与我关联对象的完整类名
+        -->
+        <set name="orderList">
+            <key  column="user_id"/>
+            <one-to-many class="com.yyyu.hibernate.pojo.UserOrder"/>
+        </set>
     </class>
+
 
 </hibernate-mapping>

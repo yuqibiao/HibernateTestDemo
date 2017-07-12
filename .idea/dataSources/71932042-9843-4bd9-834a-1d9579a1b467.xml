@@ -12,60 +12,137 @@
     <schema id="6" parent="1" name="sakila"/>
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
-    <table id="9" parent="2" name="user"/>
-    <table id="10" parent="2" name="user_order"/>
-    <column id="11" parent="9" name="id">
+    <table id="9" parent="2" name="course"/>
+    <table id="10" parent="2" name="student"/>
+    <table id="11" parent="2" name="student_course"/>
+    <table id="12" parent="2" name="t_user"/>
+    <table id="13" parent="2" name="user_order"/>
+    <column id="14" parent="9" name="c_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="12" parent="9" name="username">
+    <column id="15" parent="9" name="c_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="16" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>c_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="17" parent="10" name="s_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="18" parent="10" name="s_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="19" parent="10" name="s_age">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="20" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>s_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="11" name="c_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="11" name="s_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="23" parent="11" name="FK6k2xmwhnsyh1l8mnheyf5eeb0">
+      <ColNames>c_id</ColNames>
+    </index>
+    <key id="24" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>s_id
+c_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="11" name="FK6k2xmwhnsyh1l8mnheyf5eeb0">
+      <ColNames>c_id</ColNames>
+      <RefSchemaName>yu</RefSchemaName>
+      <RefTableName>course</RefTableName>
+      <RefColNames>c_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="26" parent="11" name="FKf1wd75sb0p0r5wt2wvvc78hd1">
+      <ColNames>s_id</ColNames>
+      <RefSchemaName>yu</RefSchemaName>
+      <RefTableName>student</RefTableName>
+      <RefColNames>s_id</RefColNames>
+    </foreign-key>
+    <column id="27" parent="12" name="u_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="12" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="13" parent="9" name="sex">
+    <column id="29" parent="12" name="sex">
       <Position>3</Position>
       <DataType>char(2)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="14" parent="9" name="birthday">
+    <column id="30" parent="12" name="birthday">
       <Position>4</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="15" parent="9" name="address">
+    <column id="31" parent="12" name="address">
       <Position>5</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <key id="16" parent="9" name="PRIMARY">
+    <key id="32" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>u_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="17" parent="10" name="id">
+    <column id="33" parent="13" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="34" parent="13" name="create_time">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="35" parent="13" name="tip">
+      <Position>4</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="36" parent="13" name="o_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="18" parent="10" name="user_id">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="19" parent="10" name="create_time">
-      <Position>3</Position>
-      <DataType>date|0</DataType>
-    </column>
-    <column id="20" parent="10" name="tip">
-      <Position>4</Position>
-      <DataType>varchar(500)|0</DataType>
-    </column>
-    <key id="21" parent="10" name="PRIMARY">
+    <index id="37" parent="13" name="FKduu8i3eo5xnuoo74nx28090w">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="38" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>o_id</ColNames>
       <Primary>1</Primary>
     </key>
+    <foreign-key id="39" parent="13" name="FKduu8i3eo5xnuoo74nx28090w">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>yu</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>u_id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

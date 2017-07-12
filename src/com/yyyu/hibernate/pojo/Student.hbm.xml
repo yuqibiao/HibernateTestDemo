@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.yyyu.hibernate.pojo.Student" table="student" schema="yu">
+        <id name="sId" column="s_id"/>
+        <property name="sName" column="s_name"/>
+        <property name="sAge" column="s_age"/>
+        <set name="courses" table="student_course" inverse="false">
+            <key column="s_id"></key>
+            <many-to-many class="com.yyyu.hibernate.pojo.Course" column="c_id"/>
+        </set>
+    </class>
+</hibernate-mapping>
