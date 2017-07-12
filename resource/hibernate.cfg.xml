@@ -30,5 +30,8 @@
     -->
     <property name="hbm2ddl.auto">update</property>
 
+    <!--配置映射文件-->
+    <mapping resource="com/yyyu/hibernate/pojo/User.hbm.xml"></mapping>
+
   </session-factory>
 </hibernate-configuration>
