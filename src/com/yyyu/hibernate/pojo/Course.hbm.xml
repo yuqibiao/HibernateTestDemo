@@ -1,15 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
     <class name="com.yyyu.hibernate.pojo.Course" table="course" schema="yu">
-        <id name="cId" column="c_id"/>
+
+        <id name="cId" column="c_id">
+            <generator class="native"/>
+        </id>
         <property name="cName" column="c_name"/>
+
         <set name="students" table="student_course" inverse="true">
             <key column="c_id"/>
-            <many-to-many  class="com.yyyu.hibernate.pojo.Student" column="s_id"/>
+            <many-to-many class="com.yyyu.hibernate.pojo.Student" column="s_id"/>
         </set>
+
     </class>
 </hibernate-mapping>

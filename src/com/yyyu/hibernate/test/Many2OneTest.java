@@ -35,7 +35,7 @@ public class Many2OneTest {
     }
 
     @Test
-    public  void test(){
+    public  void test1(){
         User user = session.get(User.class, 1);
         /*默认情况下只有调用getOrderList才会发出查询user_order表的请求*/
         Set<UserOrder> orderList = user.getOrderList();
@@ -45,11 +45,31 @@ public class Many2OneTest {
     }
 
     @Test
-    public  void test1(){
-        UserOrder userOrder = new UserOrder();
-        userOrder.setCreateTime(new Date(System.currentTimeMillis()));
-        userOrder.setTip("12313");
-        session.save(userOrder);
+    public  void test2(){//级联cascade
+
+        User user = new User();
+        user.setUsername("一对多");
+        user.setSex("1");
+        user.setBirthday(new Date(System.currentTimeMillis()));
+
+        UserOrder userOrder1 = new UserOrder();
+        userOrder1.setCreateTime(new Date(System.currentTimeMillis()));
+        userOrder1.setTip("订单1");
+
+        UserOrder userOrder2 = new UserOrder();
+        userOrder2.setCreateTime(new Date(System.currentTimeMillis()));
+        userOrder2.setTip("订单2");
+
+        user.getOrderList().add(userOrder1);
+        user.getOrderList().add(userOrder2);
+
+        userOrder1.setUser(user);
+        userOrder2.setUser(user);
+
+        /*-- 在user表映射文件中配置cascade之后，save user时会级联save user_order */
+       /* session.save(userOrder1);
+        session.save(userOrder2);*/
+        session.save(user);
     }
 
 

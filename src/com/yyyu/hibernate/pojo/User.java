@@ -1,6 +1,7 @@
 package com.yyyu.hibernate.pojo;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class User {
     private Date birthday;// 生日
     private String address;// 地址
 
-    private Set<UserOrder> orderList;
+    private Set<UserOrder> orderList = new HashSet<>();
 
     public User() {
     }

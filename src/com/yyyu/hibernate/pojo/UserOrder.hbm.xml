@@ -15,7 +15,7 @@
         column：外键列名（从表中）
         class：与我关联对象的完整类名
         -->
-        <many-to-one name="user" column="user_id" class="com.yyyu.hibernate.pojo.User" cascade="save-update"/>
+        <many-to-one name="user" column="user_id" class="com.yyyu.hibernate.pojo.User" />
     </class>
 
 </hibernate-mapping>

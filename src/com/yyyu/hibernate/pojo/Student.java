@@ -1,5 +1,6 @@
 package com.yyyu.hibernate.pojo;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ public class Student {
     private int sId;
     private String sName;
     private Integer sAge;
-    Set<Course> courses;
+    Set<Course> courses = new HashSet<>();
 
     public int getsId() {
         return sId;

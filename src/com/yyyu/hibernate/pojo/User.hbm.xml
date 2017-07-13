@@ -18,8 +18,11 @@
         name：集合属性名
         column：外键列名（从表中）
         class：与我关联对象的完整类名
+        cascade：配置主表和从表之间的级联操作，这里配置save-update表示
+        在user表中有save或update操作时会级联操作与之关联的user_order表。
+        inverse：默认是false 表示维护关系 true表示不维护主从之间的关系
         -->
-        <set name="orderList">
+        <set name="orderList" inverse="true" lazy="false" fetch="join">
             <key  column="user_id"/>
             <one-to-many class="com.yyyu.hibernate.pojo.UserOrder"/>
         </set>

@@ -40,18 +40,18 @@ public class Many2ManyTest {
         student.setsName("yu");
         student.setsAge(24);
 
-        Set<Course> courses = new HashSet<>();
         Course course1 = new Course();
         course1.setcName("大学语文");
         Course course2 = new Course();
         course2.setcName("高等数学");
 
-        courses.add(course1);
-        courses.add(course2);
-        student.setCourses(courses);
+        student.getCourses().add(course1);
+        student.getCourses().add(course2);
 
-        session.save(course1);
-        session.save(course2);
+        course1.getStudents().add(student);
+        course2.getStudents().add(student);
+
+        session.save(student);
 
     }
 
